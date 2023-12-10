@@ -7,27 +7,26 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
+    //I was unable to complete the task in time, so this script only compiles the employees in a heap without sorting it. sorry
     class Program
     {
 
         static janitor[] janitors;
         static programmer[] programmers;
         static CEO[] CEOs;
-        // Replace the main method with the following
         static void Main(string[] args)
         {
             createEmployees();
 
-            int MAX = 200;
-            employee[] arr = new employee[MAX];
+            int MAX = 200; //array size
+            employee[] arr = new employee[MAX]; //create array
 
-            //arr[1] = new CEO() { name = "ThaCeo", salary = 10000 };
-            for (int i = 0; i < janitors.Length && i < MAX; i++)
+            for (int i = 0; i < janitors.Length && i < MAX; i++) //insert Janitors into array
             {
                 arr[i] = janitors[i];
             }
 
-            for (int i = 0; i < programmers.Length && i < MAX; i++)
+            for (int i = 0; i < programmers.Length && i < MAX; i++) //insert programmers into array
             {
                 int index = i + janitors.Length;
                 if (index < MAX)
@@ -36,7 +35,7 @@ namespace Task2
                 }
             }
 
-            for (int i = 0; i < CEOs.Length && i < MAX; i++)
+            for (int i = 0; i < CEOs.Length && i < MAX; i++) //insert CEOs
             {
                 int index = i + janitors.Length + programmers.Length;
                 if (index < MAX)
@@ -62,7 +61,7 @@ namespace Task2
         }
 
 
-        public static void createEmployees()
+        public static void createEmployees() //create a bunch of instanced employees 
         {
 
             janitors = new janitor[3];
@@ -106,9 +105,9 @@ namespace Task2
                 }
             }
 
-            private void swap(int i, int j)
+            private void swap(int i, int j) 
             {
-                employee temp = heap[i];
+                employee temp = heap[i]; 
                 heap[i] = heap[j];
                 heap[j] = temp;
             }
@@ -117,7 +116,7 @@ namespace Task2
             {
                 if (size < capacity)
                 {
-                    heap[size] = salary;
+                    heap[size] = salary; 
                     heapify(size);
                     size++;
                 }
